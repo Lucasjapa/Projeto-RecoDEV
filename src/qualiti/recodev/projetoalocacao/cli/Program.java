@@ -53,6 +53,9 @@ public class Program {
 			setList(list());
 			break;
 		case 3:
+			setSearch(search());
+			break;
+		case 4:
 			toAllocate();
 			break;
 		default:
@@ -102,6 +105,28 @@ public class Program {
 		return true;
 	}
 	
+	private static boolean setSearch(Integer option) throws Exception {
+		switch(option) {
+		case 0:
+			return false;
+		case 1:
+			searchCourse();
+			break;
+		case 2:
+			searchProfessor();
+			break;			
+		case 3:
+			listProfessors();
+			break;
+		case 4:
+			listAllocations();
+			break;
+		default:
+			System.out.println("Invalid option.");
+		}
+		return true;
+	}
+	
 	//------------------REGISTER------------------
 	private static void registerCourse() {
 		System.out.println();
@@ -131,7 +156,7 @@ public class Program {
 		}
 	}
 	
-	private static void registerProfessor() throws Exception {
+	private static void registerProfessor(){
 		try {
 			System.out.println();
 			System.out.println("----REGISTER PROFESSOR----");
@@ -193,7 +218,38 @@ public class Program {
 	}
 	//------------------------------------------------------
 	
-	private static void toAllocate() throws Exception {
+	//---------------------SEARCH----------------------
+	public static void searchCourse(){
+		System.out.println();
+		System.out.println("-----SEARCH COURSE-----");
+		System.out.print("Name: ");
+		String name = scan.nextLine();
+		
+		try {
+			businessCourse.searchCourse(name);
+		}
+		catch(Exception e){
+			System.out.println(e.getMessage());
+		}
+	}
+	
+	public static void searchProfessor(){
+		System.out.println();
+		System.out.println("-----SEARCH PROFESSOR-----");
+		System.out.print("CPF: ");
+		Long cpf = scan.nextLong();
+		scan.nextLine();
+		
+		try {
+			businessProfessor.searchProfessor(cpf);
+		}
+		catch(Exception e){
+			System.out.println(e.getMessage());
+		}
+	}
+	
+	//------------------------------------------------------
+	private static void toAllocate(){
 		try {
 			System.out.println();
 			System.out.println("----ALLOCATION----");
@@ -237,7 +293,8 @@ public class Program {
 		System.out.println("0 - EXIT.");
 		System.out.println("1 - Register.");
 		System.out.println("2 - List.");
-		System.out.println("3 - To Allocate.");
+		System.out.println("3 - Search.");
+		System.out.println("4 - To Allocate.");
 		try {
 			System.out.print("Choose an operation:");
 			option = scan.nextInt();
@@ -277,6 +334,22 @@ public class Program {
 		System.out.println("2 - List Departament");
 		System.out.println("3 - List Professor");
 		System.out.println("4 - List Allocations");
+		System.out.println("-------------------------");
+
+		System.out.print("Choose an operation:");
+		option = scan.nextInt();
+		scan.nextLine();
+		return option;
+	}
+	
+	public static Integer search() {
+		Integer option;
+
+		System.out.println();
+		System.out.println("-------------------------");
+		System.out.println("0 - BACK TO MENU");
+		System.out.println("1 - Search Course");
+		System.out.println("2 - Search Professor");
 		System.out.println("-------------------------");
 
 		System.out.print("Choose an operation:");

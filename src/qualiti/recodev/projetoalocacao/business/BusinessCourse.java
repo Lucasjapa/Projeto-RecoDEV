@@ -24,12 +24,20 @@ public class BusinessCourse {
 		repositoryCourse.addCourse(new Course(courseName));
 	}
 	
+	public void searchCourse(String name) throws Exception {
+		
+		if(Objects.isNull(repositoryCourse.getCourseByName(name))) {
+			throw new Exception("No courses with that name were found.");
+		}
+		repositoryCourse.listCourse(name);
+	}
+	
 	public void viewCourses() throws Exception {	
 		
 		if(Objects.isNull(repositoryCourse.findAll())) {
 			throw new Exception("No courses were registered.");
 		}
-		repositoryCourse.viewCourses();
+		repositoryCourse.viewAllCourses();
 	}
 
 }

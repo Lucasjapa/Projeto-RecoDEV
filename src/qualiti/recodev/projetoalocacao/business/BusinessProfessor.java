@@ -39,12 +39,24 @@ public class BusinessProfessor {
 		repositoryProfessor.addProfessor(new Professor(name,cpfString,departament));	
 	}
 	
+	public void searchProfessor(Long cpf) throws Exception {
+		
+		String cpfString = String.valueOf(cpf);
+		cpfString = correctCPFformat(cpfString);
+		Professor professor = repositoryProfessor.getProfessorByCPF(cpfString);
+		
+		if(Objects.isNull(professor)) {
+			throw new Exception("No professor with this cpf was found.");
+		}
+		repositoryProfessor.listProfessor(professor);
+	}
+	
 	public void viewProfessors() throws Exception {	
 		
 		if(Objects.isNull(repositoryProfessor.findAll())) {
 			throw new Exception("No professor were registered.");
 		}
-		this.repositoryProfessor.viewProfessors();
+		this.repositoryProfessor.viewAllProfessors();
 	}
 	
 	private String correctCPFformat(String cpf) {

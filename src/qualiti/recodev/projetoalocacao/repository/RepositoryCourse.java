@@ -33,7 +33,13 @@ public class RepositoryCourse {
 		return null;
 	}
 	
-	public void viewCourses() {
+	public void listCourse(String name) {
+		System.out.println();
+		System.out.println("-----COURSE-----");
+		System.out.println("Name: " + name);
+	}
+	
+	public void viewAllCourses() {
 		System.out.println();
 		System.out.println("-----COURSES-----");
 		for(Course course: this.courses) {

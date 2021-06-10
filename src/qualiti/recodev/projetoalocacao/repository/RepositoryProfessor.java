@@ -24,6 +24,16 @@ public class RepositoryProfessor {
 		return null;
 	}
 	
+	public Professor getProfessorByCPF(String cpf) {
+		for(Professor professor: professors) {
+			if(professor.getCpf().equals(cpf)) {
+				return professor;
+			}
+		}
+		return null;
+	}
+	
+	
 	public boolean checkResgistration(String cpfString, String departament) {
 		for(Professor professor: professors) {
 			if(professor.getCpf().equals(cpfString) && professor.getDepartament().getName().equals(departament)) {		
@@ -51,12 +61,21 @@ public class RepositoryProfessor {
 		return false;
 	}*/
 	
-	public void viewProfessors() {
+	public void listProfessor(Professor professor) {
+		System.out.println();
+		System.out.println("-----PROFESSOR-----");
+		System.out.println("Name:"+ professor.getName() + 
+					" | CPF:" + professor.getCpf() + 
+					" | Departament:" + professor.getDepartament().getName());
+		
+	}
+	
+	public void viewAllProfessors() {
 		System.out.println();
 		System.out.println("-----PROFESSORS-----");
 		for(Professor professor: professors) {
-			System.out.println("Name: "+ professor.getName() + 
-					" Departament: " + professor.getDepartament().getName());
+			System.out.println("Name:"+ professor.getName() + 
+					" | Departament:" + professor.getDepartament().getName());
 		}
 	}
 	

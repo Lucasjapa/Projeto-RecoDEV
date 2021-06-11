@@ -105,7 +105,7 @@ public class Program {
 		return true;
 	}
 	
-	private static boolean setSearch(Integer option) throws Exception {
+	private static boolean setSearch(Integer option)  {
 		switch(option) {
 		case 0:
 			return false;

@@ -28,7 +28,7 @@ public class Program {
 	
 	private static Scanner scan = new Scanner(System.in);
 	
-	public static void main(String[] args) throws Exception {
+	public static void main(String[] args){
 		
 		Integer option;
 		Boolean proceed = true;
@@ -42,7 +42,7 @@ public class Program {
 		}
 	}
 	
-	private static boolean setOption(Integer option) throws Exception {
+	private static boolean setOption(Integer option){
 		switch(option) {
 		case 0:
 			return false;
@@ -64,7 +64,7 @@ public class Program {
 		return true;
 	}
 	
-	private static boolean setRegister(Integer option) throws Exception {
+	private static boolean setRegister(Integer option){
 		switch(option) {
 		case 0:
 			return false;
@@ -83,7 +83,7 @@ public class Program {
 		return true;
 	}
 	
-	private static boolean setList(Integer option) throws Exception {
+	private static boolean setList(Integer option){
 		switch(option) {
 		case 0:
 			return false;
@@ -105,7 +105,7 @@ public class Program {
 		return true;
 	}
 	
-	private static boolean setSearch(Integer option)  {
+	private static boolean setSearch(Integer option){
 		switch(option) {
 		case 0:
 			return false;

@@ -26,7 +26,7 @@ public class BusinessAllocation {
 	public void addAllocation(String professorName, String courseName, DayOfWeek dayOfWeek, Time startTime, Time endTime) throws Exception {
 		
 		Professor professor = repositoryProfessor.getProfessorByName(professorName);
-		if(Objects.isNull(professor)) {
+		if(Objects.isNull(professor) || courseName.equals(professorName)) {
 			throw new Exception("Professor not found, register the professor.");
 		}
 		
